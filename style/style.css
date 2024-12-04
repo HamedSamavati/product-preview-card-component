@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: hsl(30, 38%, 92%);
+}
+
+main {
+  width: 500px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-areas: "photo text";
+  grid-template-columns: 1fr 1fr;
+  background: hsl(0, 0%, 100%);
+  border-radius: 15px;
+}
+main .img {
+  grid-area: photo;
+  background: url(../images/image-product-desktop.jpg);
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media screen and (max-width: 768px) {
+  main .img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 375px) {
+  main .img {
+    width: 100%;
+    height: 40vh;
+    background: url(../images/image-product-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+  }
+}
+main #text-side {
+  grid-area: text;
+  padding: 20px;
+  width: 100%;
+}
+main .description {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: gray;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+main .spec {
+  margin-bottom: 1.5em;
+}
+main .category {
+  letter-spacing: 0.2em;
+  margin-bottom: 0.7em;
+  font-weight: 500;
+}
+main h1 {
+  font-family: "Fraunces", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+main .price {
+  color: hsl(158, 36%, 37%);
+}
+main .price span {
+  text-decoration: line-through;
+  padding-left: 1em;
+}
+main .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto 0;
+  background: hsl(158, 36%, 37%);
+  padding: 10px;
+  border-radius: 0.4em;
+  text-align: center;
+}
+main .button a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+}
+main .button svg {
+  width: 20px;
+  height: 20px;
+  fill: hsl(0, 0%, 100%);
+  margin-right: 10px;
+}
+@media screen and (max-width: 1440px) {
+  main {
+    width: 500px;
+    margin: 3em auto;
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 768px) {
+  main {
+    width: 500px;
+    height: calc(100h - 50px);
+    margin: 3em auto;
+    flex-direction: row;
+  }
+}
+@media (max-width: 375px) {
+  main {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    grid-template-areas: "photo" "text";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

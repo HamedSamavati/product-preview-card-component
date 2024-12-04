@@ -1,0 +1,153 @@
+// The designs were created to the following widths:
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+// - Mobile: 375px
+// - Desktop: 1440px
+
+$dark-cyan: hsl(158, 36%, 37%);
+$cream: hsl(30, 38%, 92%);
+$very-dark-blue: hsl(212, 21%, 14%);
+$dark-blue: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+$font-size-paragraph: 14px;
+$font-paragraph: "Montserrat", Arial, Helvetica, sans-serif;
+$font-header: "Fraunces", Arial, Helvetica, sans-serif;
+$padding-text: 20px;
+
+// - Family: [Montserrat](https://fonts.google.com/specimen/Montserrat)
+// - Weights: 500, 700
+// - Family: [Fraunces](https://fonts.google.com/specimen/Fraunces)
+// - Weights: 700
+@mixin display($width) {
+  @if ($width == 375) {
+    @media (max-width: 375px) {
+      @content;
+    }
+  }
+  @if ($width ==768) {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if ($width ==1440) {
+    @media screen and (max-width: 1440px) {
+      @content;
+    }
+  }
+}
+body {
+  background: $cream;
+}
+main {
+  width: 500px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-areas: "photo text";
+  grid-template-columns: 1fr 1fr;
+  background: $white;
+  border-radius: 15px;
+  .img {
+    grid-area: photo;
+    background: url(../images/image-product-desktop.jpg);
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include display(768) {
+      width: 100%;
+      height: auto;
+    }
+    @include display(375) {
+      width: 100%;
+      height: 40vh;
+      background: url(../images/image-product-mobile.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 10px;
+    }
+  }
+  #text-side {
+    grid-area: text;
+    padding: $padding-text;
+    width: 100%;
+  }
+  .description {
+    font-family: $font-paragraph;
+    color: gray;
+    font-size: $font-size-paragraph;
+    font-weight: 500;
+    line-height: 1.5em;
+  }
+  .spec {
+    margin-bottom: 1.5em;
+  }
+  .category {
+    letter-spacing: 0.2em;
+    margin-bottom: 0.7em;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: $font-header;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+  }
+  .price {
+    color: $dark-cyan;
+    span {
+      text-decoration: line-through;
+      padding-left: 1em;
+    }
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto 0;
+    background: $dark-cyan;
+    padding: 10px;
+    border-radius: 0.4em;
+    text-align: center;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $white;
+      margin-right: 10px;
+    }
+  }
+
+  @include display(1440) {
+    width: 500px;
+    margin: 3em auto;
+    flex-direction: row;
+  }
+
+  @include display(768) {
+    width: 500px;
+
+    height: calc(100h - 50px);
+    margin: 3em auto;
+    flex-direction: row;
+  }
+
+  @include display(375) {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    grid-template-areas:
+      "photo"
+      "text";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+  }
+}
