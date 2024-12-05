@@ -58,6 +58,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 10px 0 0 10px;
     @include display(768) {
       width: 100%;
       height: auto;
@@ -69,7 +70,7 @@ main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
     }
   }
   #text-side {
